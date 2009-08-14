@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
+Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>PiggyBack</title>
+    <style type="text/css">
+      @import url('application.css');
+    </style>
+  </head>
+
+  <body>
+    <form id="new-expense" action="action" method="post" accept-charset="utf-8">
+      <fieldset>
+        <legend>Add new expense</legend>
+        <p>
+        <label for="amount">I spent</label> 
+        <input id="amount" size="6" />
+        <label for="expense-title">For</label>
+        <input id="expense-title" size="30" />
+        <select>
+          <option>Booze</option>
+          <option>Blaze</option>
+          <option>Bills</option>
+          <option>Food</option>
+          <option>Fuel</option>
+          <option disabled="disabled">-------</option>
+          <option>New category</option>
+        </select>
+        <input type="submit" value="Cough!" />
+        </p>
+      </fieldset>
+    </form>
+
+    <div id="expenses">
+      <table>
+        <caption>Recent expenses:</caption>
+        <colgroup>
+          <col width="15%"></col>
+          <col width="60%"></col>
+          <col width="25%"></col>
+        </colgroup>
+        <tbody>
+          <tr class="date"> <td colspan="2">Today</td> <td class="price">200 лв</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Bowmore 12 yrs Old</td> <td class="price">&euro; 33</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Talisker 18 yrs Old</td> <td class="price">&euro; 48</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Lagavulin Distillers Edition</td> <td class="price">180 лв</td> </tr>
+          <tr class="date"> <td colspan="2">Yesterday</td> <td class="price">300 lv</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Bowmore 12 yrs Old</td> <td class="price">&euro; 33</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Talisker 18 yrs Old</td> <td class="price">&euro; 48</td> </tr>
+          <tr> <td class="category">Booze</td> <td>Lagavulin Distillers Edition</td> <td class="price">180 лв</td> </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="stats">
+      <table>
+        <caption>How am I going?</caption>
+        <tbody>
+          <tr class="month"> <td>July</td> <td class="price">2000 лв</td> </tr>
+          <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
+          <tr><td class="category">Pills(1)</td><td class="price">500 лв</td></tr>
+          <tr><td class="category">Fuel(3)</td><td class="price">500 лв</td></tr>
+          <tr class="month"> <td>June</td> <td class="price">2000 лв</td> </tr>
+          <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
+          <tr><td class="category">Pills(10)</td><td class="price">500 лв</td></tr>
+          <tr><td class="category">Fuel(1)</td><td class="price">500 лв</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>

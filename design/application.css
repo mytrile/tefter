@@ -1,0 +1,57 @@
+body {
+  color:#222;
+  font:90% sans-serif; 
+}
+#new-expense input, 
+#new-expense select, 
+#new-expense label
+{
+  font-size:1.6em;
+}
+
+caption {
+  text-align:left;
+}
+
+table {
+  width:90%;
+  margin-top:1em;
+  border-collapse:collapse;
+}
+
+#expenses {
+  width:80%;
+  float:left;
+}
+
+#stats {
+  width:20%;
+  float:left;
+}
+
+#expenses .date td,
+#stats .month td
+{
+  font-weight:bold;
+  border-bottom:1px solid #333;
+  padding-top:1em;
+  font-size:80%;
+  color:#999;
+}
+
+td {
+  border-bottom:1px solid #ccc;
+  padding:3px 10px;
+}
+
+#expenses .price {
+  text-align:right;
+  font-style:italic;
+}
+
+#expenses .category {
+  font-variant:small-caps;
+  text-transform:uppercase;
+  font-size:70%;
+}
+
