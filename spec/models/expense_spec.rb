@@ -4,4 +4,29 @@ describe Expense do
   it { should belong_to :category }
   it { should validate_presence_of :title }
   it { should validate_presence_of :amount }
+  it { should validate_presence_of :category_name }
+
+  it "creates category if none present" do
+    ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+    ex.category.name.should == "Booze"
+  end
+
+  it "defaults to today" do
+    ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+    Expense.for_date(Date.today).should include(ex)
+  end
+  
+  it "reuses category if present" do
+    ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+    ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "Booze"
+    ex1.category.should == ex2.category
+  end
+
+  it "does not crate category if invalid" do
+    ex = Expense.create :amount => 40, :category_name => "Booze"
+    ex.should_not be_valid
+    ex.category.should be_nil
+  end
+
+
 end

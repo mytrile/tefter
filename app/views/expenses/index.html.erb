@@ -1,67 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
-Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>PiggyBack</title>
-    <style type="text/css">
-      @import url('application.css');
-    </style>
-  </head>
+<% form_for @expense, :html => { :id => 'new-expense' } do |f| %>
+  <fieldset>
+    <legend>Add new expense</legend>
+    <p>
+    <%= f.label :amount, 'I spent' %>
+    <%= f.text_field :amount, :size => 6 %>
+    <%= f.label :title, 'For' %>
+    <%= f.text_field :title, :size => 30 %>
+    <%= f.label :category_name, 'Category', :class => 'hidden' %>
+    <%= f.text_field :category_name, :size => 6 %>
+    <input type="submit" value="Cough!" />
+    </p>
+  </fieldset>
+<% end %>
 
-  <body>
-    <% form_for @expense do |f| %>
-      <fieldset>
-        <legend>Add new expense</legend>
-        <p>
-        <label for="amount">I spent</label> 
-        <input id="amount" size="6" type="text" />
-        <label for="expense-title">For</label>
-        <input id="expense-title" size="30" type="text" />
-        <input title="Category" name="category" id="category" type="text" />
-        <input type="submit" value="Cough!" />
-        </p>
-      </fieldset>
-    <% end %>
+<div id="main">
+  <div id="expenses">
+    <table>
+      <caption>Recent expenses:</caption>
+      <colgroup>
+        <col width="15%" />
+        <col width="60%" />
+        <col width="25%" />
+      </colgroup>
+      <tbody>
+        <% date = nil %>
+        <% @expenses.each do |expense| %>
+          <% if date != expense.created_at %>
+            <% date = expense.created_at %>
+            <tr class="date"> <td colspan="2"><%= date.to_s(:short) %></td> <td class="price"><%= total_for_date(date) %> лв</td> </tr>
+          <% end %>
+          <tr> <td class="category"><%= expense.category.name %></td> <td><%= expense.title %></td> <td class="price"><%= expense.amount %> лв</td> </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-    <div id="main">
-      <div id="expenses">
-        <table>
-          <caption>Recent expenses:</caption>
-          <colgroup>
-            <col width="15%"></col>
-            <col width="60%"></col>
-            <col width="25%"></col>
-          </colgroup>
-          <tbody>
-            <tr class="date"> <td colspan="2">Today</td> <td class="price">200 лв</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Bowmore 12 yrs Old</td> <td class="price">&euro; 33</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Talisker 18 yrs Old</td> <td class="price">&euro; 48</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Lagavulin Distillers Edition</td> <td class="price">180 лв</td> </tr>
-            <tr class="date"> <td colspan="2">Yesterday</td> <td class="price">300 lv</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Bowmore 12 yrs Old</td> <td class="price">&euro; 33</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Talisker 18 yrs Old</td> <td class="price">&euro; 48</td> </tr>
-            <tr> <td class="category">Booze</td> <td>Lagavulin Distillers Edition</td> <td class="price">180 лв</td> </tr>
-          </tbody>
-        </table>
-      </div>
+  <div id="stats">
+    <table>
+      <caption>How am I going?</caption>
+      <tbody>
+        <tr class="month"> <td>July</td> <td class="price">2000 лв</td> </tr>
+        <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
+        <tr><td class="category">Pills(1)</td><td class="price">500 лв</td></tr>
+        <tr><td class="category">Fuel(3)</td><td class="price">500 лв</td></tr>
+        <tr class="month"> <td>June</td> <td class="price">2000 лв</td> </tr>
+        <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
+        <tr><td class="category">Pills(10)</td><td class="price">500 лв</td></tr>
+        <tr><td class="category">Fuel(1)</td><td class="price">500 лв</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <br style="clear:both" />
+</div>
 
-      <div id="stats">
-        <table>
-          <caption>How am I going?</caption>
-          <tbody>
-            <tr class="month"> <td>July</td> <td class="price">2000 лв</td> </tr>
-            <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
-            <tr><td class="category">Pills(1)</td><td class="price">500 лв</td></tr>
-            <tr><td class="category">Fuel(3)</td><td class="price">500 лв</td></tr>
-            <tr class="month"> <td>June</td> <td class="price">2000 лв</td> </tr>
-            <tr><td class="category">Booze(4)</td><td class="price">1500 лв</td></tr>
-            <tr><td class="category">Pills(10)</td><td class="price">500 лв</td></tr>
-            <tr><td class="category">Fuel(1)</td><td class="price">500 лв</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <br style="clear:both" />
-    </div>
-  </body>
-</html>

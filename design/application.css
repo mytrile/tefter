@@ -12,6 +12,12 @@ body {
   margin:0 auto;
 }
 
+#errorExplanation {
+  background-color:#C8D9B0;
+  padding:1em;
+  margin-bottom:1em;
+}
+
 #main {
   background-color:#FFFFD1;
   padding:2em 1em;
@@ -23,10 +29,11 @@ body {
 }
 
 #new-expense legend {
-  position:relative;
-  top:-5px;
   color:white;
+  background-color:#7F8C6C;
+  padding:0 3em;
 }
+
 #new-expense fieldset {
   margin:0;
   border:0;

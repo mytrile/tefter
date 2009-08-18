@@ -22,6 +22,10 @@ body {
   padding:0;
 }
 
+.hidden {
+  display:none;
+}
+
 #new-expense legend {
   position:relative;
   top:-5px;

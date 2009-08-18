@@ -4,7 +4,7 @@ class CreateExpenses < ActiveRecord::Migration
       t.string :title, :null => false
       t.decimal :amount, :null => false
       t.belongs_to :category, :null => false
-      t.timestamps
+      t.date :created_at
     end
   end
 
