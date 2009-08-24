@@ -15,6 +15,11 @@ describe ExpensesController do
     it { should assign_to(:totals).with_kind_of(Hash) }
     it { should assign_to(:stats).with_kind_of(Hash) }
     it { should respond_with(:success) }
+
+    it "should show paginated entries with totals" do
+      Expense.should_receive(:paginate_with_totals).and_return([[], {}])
+      get :index
+    end
   end
 
   describe "New expense (successful)" do
