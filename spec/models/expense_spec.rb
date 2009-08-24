@@ -13,7 +13,17 @@ describe Expense do
 
   it "defaults to today" do
     ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
-    Expense.for_date(Date.today).should include(ex)
+    ex.created_at.should == Date.today
+  end
+
+  it "calculates totals" do
+    Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+    Expense.create :title => "Talisker 18 yrs old", :amount => 50, :category_name => "Booze"
+    Expense.create :title => "Talisker 18 yrs old", :amount => 50, :category_name => "Booze", :created_at => Date.yesterday
+    records, totals = Expense.paginate_with_totals :page => 1
+    totals[Date.today].should == 90
+    totals[Date.yesterday].should == 50
+    records.should have(3).records
   end
   
   it "reuses category if present" do

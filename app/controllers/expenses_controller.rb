@@ -1,7 +1,8 @@
 class ExpensesController < ApplicationController
   def index
     @expense = Expense.new
-    @expenses = Expense.paginate :page => params[:page], :order => 'created_at desc, id desc'
+    @expenses, @totals = Expense.paginate_with_totals :page => params[:page]
+    @stats = {}
   end
 
   def create
@@ -10,7 +11,7 @@ class ExpensesController < ApplicationController
       flash[:notice] = "Expense added."
       redirect_to root_path
     else
-      flash[:error] = "What are you, some kinda of retired?"
+      flash[:error] = "Expense not added."
       render :action => 'index'
     end
   end

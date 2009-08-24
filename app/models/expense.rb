@@ -9,11 +9,18 @@ class Expense < ActiveRecord::Base
   validate :check_category_name
   before_create :bind_category, :set_created_at
 
-  named_scope :for_date, lambda { |date| { :conditions => { :created_at => date } } }
+  def self.paginate_with_totals(options)
+    expenses = paginate options.merge(:order => 'created_at desc, id desc')
+    return [ [], {}] if expenses.empty?
+    range = (expenses.last.created_at .. expenses.first.created_at)
+    totals = sum(:amount, :conditions => { :created_at => range }, :group => :created_at)
+    [expenses, totals]
+  end
+
   protected
 
   def set_created_at
-    self.created_at = Date.today
+    self.created_at ||= Date.today
   end
 
   def bind_category

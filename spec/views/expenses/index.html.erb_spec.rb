@@ -6,7 +6,7 @@ describe "/expenses/index" do
       response.should have_tag "table[summary~=#{month}]" do |table|
         table.should have_tag 'thead' do |head|
           head.should have_tag('th', /#{month}/)
-          head.should have_tag('th.price', /#{'%0.2f'% amount} лв/)
+          head.should have_tag('th.price', /#{'%0.2f'% amount}/)
         end
 
         table.should have_tag 'tbody' do |tbody|
@@ -20,17 +20,15 @@ describe "/expenses/index" do
     it "Should display #{amount} for #{category}" do
       month.should have_tag 'tr' do |row|
         row.should have_tag('td', /#{category}/)
-          row.should have_tag('td.price', /#{'%0.2f'% amount} лв/)
+          row.should have_tag('td.price', /#{'%0.2f'% amount}/)
       end
     end
-  end
-
-  def self.stats
   end
 
   before(:each) do
     assigns[:expense] = stub_model(Expense).as_new_record
     assigns[:expenses] = [ stub_model(Expense, :category => stub_model(Category), :amount => 1000) ]
+    assigns[:totals] = { Date.today => 1000 }
     assigns[:stats] = ActiveSupport::OrderedHash.new.tap do |h|
       h['July'] = { "Booze" => 2000, "Blaze" => 900 }
       h['June'] = { "Food" => 1000, "Health" => 1100 }
