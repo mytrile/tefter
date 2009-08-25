@@ -26,7 +26,7 @@ class Expense < ActiveRecord::Base
 
     while true
       interval = (start_date.beginning_of_month..start_date.end_of_month)
-      ex_for_month = Expense.sum(:amount, :order => :sum_amount, :group => 'categories.name', :include => :category, :conditions => { :created_at => interval })
+      ex_for_month = Expense.sum(:amount, :order => 'sum_amount desc', :group => 'categories.name', :include => :category, :conditions => { :created_at => interval })
       stats[start_date.strftime('%B')] = ex_for_month
       start_date -= 1.month
       break if start_date < end_date
