@@ -53,7 +53,7 @@ describe Expense do
     end
 
     it "should provide stats for months" do
-      @stats.keys.should include @month
+      @stats.keys.should include(@month)
     end
 
     it "should return correct sum for category" do
