@@ -20,6 +20,12 @@ describe ExpensesController do
       Expense.should_receive(:in_pages_with_totals).and_return([[], {}])
       get :index
     end
+
+    it "should show stats" do
+      Expense.should_receive(:stats).and_return({})
+      get :index
+    end
+
   end
 
   describe "New expense (successful)" do

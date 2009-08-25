@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   def index
     @expense = Expense.new
     @expenses, @totals = Expense.in_pages_with_totals :page => params[:page]
-    @stats = {}
+    @stats = Expense.stats
   end
 
   def create
