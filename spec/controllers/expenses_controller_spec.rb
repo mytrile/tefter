@@ -17,7 +17,7 @@ describe ExpensesController do
     it { should respond_with(:success) }
 
     it "should show paginated entries with totals" do
-      Expense.should_receive(:paginate_with_totals).and_return([[], {}])
+      Expense.should_receive(:in_pages_with_totals).and_return([[], {}])
       get :index
     end
   end

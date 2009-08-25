@@ -20,7 +20,7 @@ describe Expense do
     Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
     Expense.create :title => "Talisker 18 yrs old", :amount => 50, :category_name => "Booze"
     Expense.create :title => "Talisker 18 yrs old", :amount => 50, :category_name => "Booze", :created_at => Date.yesterday
-    records, totals = Expense.paginate_with_totals :page => 1
+    records, totals = Expense.in_pages_with_totals :page => 1
     totals[Date.today].should == 90
     totals[Date.yesterday].should == 50
     records.should have(3).records
@@ -38,5 +38,22 @@ describe Expense do
     ex.category.should be_nil
   end
 
+  context "stats" do
+    before do
+      @ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+      @month = @ex.created_at.strftime('%B')
+      @stats = Expense.stats
+    end
+
+    it "should provide stats for months" do
+      @stats.keys.should include @month
+    end
+
+    it "should return correct sum for category" do
+      @stats[@month][@ex.category.name].should == 40
+    end
+    
+    
+  end
 
 end

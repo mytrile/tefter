@@ -9,12 +9,30 @@ class Expense < ActiveRecord::Base
   validate :check_category_name
   before_create :bind_category, :set_created_at
 
-  def self.paginate_with_totals(options)
+  def self.in_pages_with_totals(options)
     expenses = paginate options.merge(:order => 'created_at desc, id desc')
     return [ [], {}] if expenses.empty?
     range = (expenses.last.created_at .. expenses.first.created_at)
     totals = sum(:amount, :conditions => { :created_at => range }, :group => :created_at)
     [expenses, totals]
+  end
+
+  def self.stats
+    start_date = maximum(:created_at)
+    end_date = minimum(:created_at)
+    
+    stats = {}
+
+    while true
+      interval = (start_date.beginning_of_month..start_date.end_of_month)
+      ex_for_month = Expense.sum(:amount, :order => :sum_amount, :group => 'categories.name', :include => :category, :conditions => { :created_at => interval })
+      stats[start_date.strftime('%B')] = ex_for_month
+      start_date -= 1.month
+      break if start_date < end_date
+    end
+
+    stats
+
   end
 
   protected

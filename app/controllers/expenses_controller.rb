@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   def index
     @expense = Expense.new
-    @expenses, @totals = Expense.paginate_with_totals :page => params[:page]
+    @expenses, @totals = Expense.in_pages_with_totals :page => params[:page]
     @stats = {}
   end
 
