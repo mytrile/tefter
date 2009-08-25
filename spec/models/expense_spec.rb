@@ -11,6 +11,19 @@ describe Expense do
     ex.category.name.should == "Booze"
   end
 
+  it "reuses category if present" do
+    ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+    ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "Booze"
+    ex1.category.should == ex2.category
+  end
+
+  it "is case insensitive for cat" do
+    ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "booze"
+    ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "bOOze"
+    ex1.category.should == ex2.category
+  end
+
+
   it "defaults to today" do
     ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
     ex.created_at.should == Date.today
@@ -26,12 +39,6 @@ describe Expense do
     records.should have(3).records
   end
   
-  it "reuses category if present" do
-    ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
-    ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "Booze"
-    ex1.category.should == ex2.category
-  end
-
   it "does not crate category if invalid" do
     ex = Expense.create :amount => 40, :category_name => "Booze"
     ex.should_not be_valid

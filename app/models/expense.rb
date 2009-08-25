@@ -18,6 +18,7 @@ class Expense < ActiveRecord::Base
   end
 
   def self.stats
+    return {} if count.zero?
     start_date = maximum(:created_at)
     end_date = minimum(:created_at)
     
@@ -42,7 +43,7 @@ class Expense < ActiveRecord::Base
   end
 
   def bind_category
-    self.category = Category.find_or_create_by_name(category_name)
+    self.category = Category.first(:conditions => [ 'upper(name) = ?', category_name.upcase ]) || Category.create(:name => category_name)
   end
 
   def check_category_name
