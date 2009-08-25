@@ -40,7 +40,7 @@ describe ExpensesController do
       Expense.should_receive(:create).and_return(expense)
       post 'create'
       should redirect_to(root_path)
-      should set_the_flash.to /Expense added/
+      should set_the_flash.to(/Expense added/)
     end
   end
 
@@ -49,8 +49,8 @@ describe ExpensesController do
       expense = mock_model(Expense, :valid? => false)
       Expense.should_receive(:create).and_return(expense)
       post 'create'
-      should render_template :index
-      should set_the_flash.to /Expense not added/
+      should render_template(:index)
+      should set_the_flash.to(/Expense not added/)
     end
   end
 

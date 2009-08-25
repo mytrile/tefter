@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Expense do
-  it { should belong_to :category }
-  it { should validate_presence_of :title }
-  it { should validate_presence_of :amount }
-  it { should validate_presence_of :category_name }
+  it { should belong_to(:category) }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:amount) }
+  it { should validate_presence_of(:category_name) }
 
   it "creates category if none present" do
     ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"

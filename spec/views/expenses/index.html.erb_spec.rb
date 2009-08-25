@@ -3,13 +3,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 describe "/expenses/index" do
   def self.it_should_show_expense_for_month(month, amount)
     it "Should display #{amount} for #{month}" do
-      response.should have_tag "table[summary~=#{month}]" do |table|
-        table.should have_tag 'thead' do |head|
+      response.should have_tag("table[summary~=#{month}]") do |table|
+        table.should have_tag('thead') do |head|
           head.should have_tag('th', /#{month}/)
           head.should have_tag('th.price', /#{'%0.2f'% amount}/)
         end
 
-        table.should have_tag 'tbody' do |tbody|
+        table.should have_tag('tbody') do |tbody|
           yield(tbody)
         end
       end
@@ -18,7 +18,7 @@ describe "/expenses/index" do
 
   def self.it_should_display_expense_for_category(month, category, amount)
     it "Should display #{amount} for #{category}" do
-      month.should have_tag 'tr' do |row|
+      month.should have_tag('tr') do |row|
         row.should have_tag('td', /#{category}/)
           row.should have_tag('td.price', /#{'%0.2f'% amount}/)
       end
@@ -37,7 +37,7 @@ describe "/expenses/index" do
     render 'expenses/index'
   end
 
-  it { should respond_with :success }
+  it { should respond_with(:success) }
 
   it_should_show_expense_for_month 'July', 2900 do |table|
     it_should_display_expense_for_category(table, 'Booze', 2000)
