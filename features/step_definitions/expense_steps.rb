@@ -4,9 +4,12 @@ end
 
 Then /^I should have spent (\d+) bucks for (.+)$/ do |amount, time|
   date = Chronic.parse(time)
-  response.should have_tag 'tr.month' do |row|
-    row.should have_tag 'td', /#{date.strftime('%B')}/
-    row.should have_tag 'td', /#{amount} лв/
+  month = date.strftime '%B'
+  response.should have_tag "table[summary~=#{month}]" do |table|
+    table.should have_tag 'thead' do |head|
+      head.should have_tag('th', /#{month}/)
+      head.should have_tag('th.price', /#{'%0.2f'% amount}/)
+    end
   end
 end
 
