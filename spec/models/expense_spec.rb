@@ -47,19 +47,24 @@ describe Expense do
 
   context "stats" do
     before do
-      @ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
-      @month = @ex.created_at.strftime('%B')
+      Time.stub!(:now).and_return(Time.parse '13 August 2009')
+      @talisker = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+      Time.stub!(:now).and_return(Time.parse '29 July 2009')
+      @lagavulin = Expense.create :title => "Lagavilin Distillers Edition", :amount => 80, :category_name => "Booze"
+      @this_month = @talisker.created_at.strftime('%B')
+      @last_month = @lagavulin.created_at.strftime('%B')
       @stats = Expense.stats
     end
 
-    it "should provide stats for months" do
-      @stats.keys.should include(@month)
+    it "should provide stats this month" do
+      @stats.keys.should include(@this_month)
+      @stats[@this_month]['Booze'].should == 40
     end
 
-    it "should return correct sum for category" do
-      @stats[@month][@ex.category.name].should == 40
+    it "should provide stats last month" do
+      @stats.keys.should include(@last_month)
+      @stats[@last_month]['Booze'].should == 80
     end
-    
     
   end
 
