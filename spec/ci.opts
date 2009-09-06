@@ -1,4 +1,4 @@
 --colour
---format specdoc
+--format html:stats/spec.html
 --loadby mtime
 --reverse
