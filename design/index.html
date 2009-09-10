@@ -8,199 +8,201 @@ Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   </head>
 
   <body>
-    
-<form action="/expenses" class="new_expense" id="new-expense" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="Fkk5PfAjmTDK8GpUUkktNkl8llvcIo0I/vF0RMpMu/U=" /></div>
-  <fieldset>
-    <legend>Add new expense</legend>
-    <p>
-    <label for="expense_amount">I spent</label>
-    <input id="expense_amount" name="expense[amount]" size="6" type="text" />
-    <label for="expense_title">For</label>
-    <input id="expense_title" name="expense[title]" size="30" type="text" />
-    <label class="hidden" for="expense_category_name">Category</label>
-    <input id="expense_category_name" name="expense[category_name]" size="9" type="text" />
-    <input type="submit" value="Cough!" />
-    </p>
-  </fieldset>
-</form>
 
-<div id="main">
-  <div id="expenses">
-    <h2>Recent expenses</h2>
-    <table>
-      <colgroup>
-        <col width="15%" />
-        <col width="60%" />
-        <col width="25%" />
-      </colgroup>
-      <tbody>
-            
+    <p class="notice">Expense added</p>
+
+    <form action="/expenses" class="new_expense" id="new-expense" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="Fkk5PfAjmTDK8GpUUkktNkl8llvcIo0I/vF0RMpMu/U=" /></div>
+      <fieldset>
+        <legend>Add new expense</legend>
+        <p>
+        <label for="expense_amount">I spent</label>
+        <input id="expense_amount" name="expense[amount]" size="6" type="text" />
+        <label for="expense_title">For</label>
+        <input id="expense_title" name="expense[title]" size="30" type="text" />
+        <label class="hidden" for="expense_category_name">Category</label>
+        <input id="expense_category_name" name="expense[category_name]" size="9" type="text" />
+        <input type="submit" value="Cough!" />
+        </p>
+      </fieldset>
+    </form>
+
+    <div id="main">
+      <div id="expenses">
+        <h2>Recent expenses</h2>
+        <table>
+          <colgroup>
+            <col width="15%" />
+            <col width="60%" />
+            <col width="25%" />
+          </colgroup>
+          <tbody>
+
             <tr class="date"> <td colspan="2">10 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Blaze</td> <td>Nargileh</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Lunch</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">House</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Taxi</td> <td>Taxi</td> <td class="price">5.00</td> </tr>
-        
-          
-          <tr> <td class="category">Booze</td> <td>Drinks</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 9 Sep</td> <td class="price">3.40</td> </tr>
-          
-          <tr> <td class="category">Food</td> <td>Water</td> <td class="price">3.40</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 8 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Blaze</td> <td>Romeo and Julieta</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Soda</td> <td class="price">1.20</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Dinner</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Coffee</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Car</td> <td>Car leasing</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Bills</td> <td>Electricty + Watter</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 7 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Software</td> <td>dekaft</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>biscuits</td> <td class="price">2.55</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>water</td> <td class="price">5.00</td> </tr>
-        
-          
-          <tr> <td class="category">Fuel</td> <td>Gas to Plovdiv</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 6 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Food(O)</td> <td>Sammich</td> <td class="price">5.00</td> </tr>
-        
-          
-          <tr> <td class="category">Booze</td> <td>Drinks</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 5 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Food(O)</td> <td>Water</td> <td class="price">1.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Lunch</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Dinner</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 4 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Bills</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food</td> <td>Fruits and Chocolate</td> <td class="price">8.20</td> </tr>
-        
-          
-          <tr> <td class="category">Booze</td> <td>Havana Club</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Health</td> <td>spine exham</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 3 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Food</td> <td>Groceries</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Blaze</td> <td>Cigars</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Food(O)</td> <td>Breakfast</td> <td class="price">10.00</td> </tr>
-        
-          
-          <tr> <td class="category">Bills</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
-        
-          
-            
-            <tr class="date"> <td colspan="2"> 1 Sep</td> <td class="price">10.00</td> </tr>
-          
-          <tr> <td class="category">Food</td> <td>Juice</td> <td class="price">4.80</td> </tr>
-        
-      </tbody>
-    </table>
-  </div>
 
-  <div id="stats">
-    <h2>How am I going?</h2>
-          <table summary="Expenses for September">
-        <thead>
-          <tr><th>September</th> <th class="price">110.00</th> </tr>
-        </thead>
-        <tbody>
-                      <tr><td class="category">Car</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Food(O)</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Blaze</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Health</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Fuel</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Software</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Bills</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Food</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Booze</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">House</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Hygiene</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Taxi</td><td class="price">5.00</td></tr>
-                  </tbody>
-      </table>
-          <table summary="Expenses for August">
-        <thead>
-          <tr><th>August</th> <th class="price">110.00</th> </tr>
-        </thead>
-        <tbody>
-                      <tr><td class="category">Presents</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Health</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Blaze</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Food</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Food(O)</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Bills</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Fuel</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Software</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">night out</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Drugs</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Booze</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Gambling</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Recr.</td><td class="price">10.00</td></tr>
-                      <tr><td class="category">Commute</td><td class="price">9.00</td></tr>
-                      <tr><td class="category">Misc</td><td class="price">8.38</td></tr>
-                      <tr><td class="category">Sports</td><td class="price">4.00</td></tr>
-                  </tbody>
-      </table>
+            <tr> <td class="category">Blaze</td> <td>Nargileh</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Lunch</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">House</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Taxi</td> <td>Taxi</td> <td class="price">5.00</td> </tr>
+
+
+            <tr> <td class="category">Booze</td> <td>Drinks</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 9 Sep</td> <td class="price">3.40</td> </tr>
+
+            <tr> <td class="category">Food</td> <td>Water</td> <td class="price">3.40</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 8 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Blaze</td> <td>Romeo and Julieta</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Soda</td> <td class="price">1.20</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Dinner</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Coffee</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Car</td> <td>Car leasing</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Bills</td> <td>Electricty + Watter</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 7 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Software</td> <td>dekaft</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>biscuits</td> <td class="price">2.55</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>water</td> <td class="price">5.00</td> </tr>
+
+
+            <tr> <td class="category">Fuel</td> <td>Gas to Plovdiv</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 6 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Food(O)</td> <td>Sammich</td> <td class="price">5.00</td> </tr>
+
+
+            <tr> <td class="category">Booze</td> <td>Drinks</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 5 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Food(O)</td> <td>Water</td> <td class="price">1.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Lunch</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Dinner</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 4 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Bills</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food</td> <td>Fruits and Chocolate</td> <td class="price">8.20</td> </tr>
+
+
+            <tr> <td class="category">Booze</td> <td>Havana Club</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Health</td> <td>spine exham</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 3 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Food</td> <td>Groceries</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Blaze</td> <td>Cigars</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Food(O)</td> <td>Breakfast</td> <td class="price">10.00</td> </tr>
+
+
+            <tr> <td class="category">Bills</td> <td>Cleaner</td> <td class="price">10.00</td> </tr>
+
+
+
+            <tr class="date"> <td colspan="2"> 1 Sep</td> <td class="price">10.00</td> </tr>
+
+            <tr> <td class="category">Food</td> <td>Juice</td> <td class="price">4.80</td> </tr>
+
+          </tbody>
+        </table>
       </div>
-  <br style="clear:both" />
-</div>
+
+      <div id="stats">
+        <h2>How am I going?</h2>
+        <table summary="Expenses for September">
+          <thead>
+            <tr><th>September</th> <th class="price">110.00</th> </tr>
+          </thead>
+          <tbody>
+            <tr><td class="category">Car</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Food(O)</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Blaze</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Health</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Fuel</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Software</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Bills</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Food</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Booze</td><td class="price">10.00</td></tr>
+            <tr><td class="category">House</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Hygiene</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Taxi</td><td class="price">5.00</td></tr>
+          </tbody>
+        </table>
+        <table summary="Expenses for August">
+          <thead>
+            <tr><th>August</th> <th class="price">110.00</th> </tr>
+          </thead>
+          <tbody>
+            <tr><td class="category">Presents</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Health</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Blaze</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Food</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Food(O)</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Bills</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Fuel</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Software</td><td class="price">10.00</td></tr>
+            <tr><td class="category">night out</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Drugs</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Booze</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Gambling</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Recr.</td><td class="price">10.00</td></tr>
+            <tr><td class="category">Commute</td><td class="price">9.00</td></tr>
+            <tr><td class="category">Misc</td><td class="price">8.38</td></tr>
+            <tr><td class="category">Sports</td><td class="price">4.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <br style="clear:both" />
+    </div>
 
 
   </body>
