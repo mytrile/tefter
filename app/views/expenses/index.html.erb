@@ -8,7 +8,7 @@
     <%= f.label :title, 'For' %>
     <%= f.text_field :title, :size => 30 %>
     <%= f.label :category_name, 'Category', :class => 'hidden' %>
-    <%= f.text_field :category_name, :size => 6 %>
+    <%= f.text_field :category_name, :size => 10 %>
     <input type="submit" value="Cough!" />
     </p>
   </fieldset>
@@ -16,8 +16,8 @@
 
 <div id="main">
   <div id="expenses">
+    <h2>Recent expenses:</h2>
     <table>
-      <caption>Recent expenses:</caption>
       <colgroup>
         <col width="15%" />
         <col width="60%" />
@@ -25,13 +25,13 @@
       </colgroup>
       <tbody>
         <% date = nil %>
-        <% @expenses.each do |expense| %>
-          <% if date != expense.created_at %>
-            <% date = expense.created_at %>
+        <% @expenses.each do |expense| -%>
+          <% if date != expense.created_at -%>
+            <% date = expense.created_at -%>
             <tr class="date"> <td colspan="2"><%= date.to_s(:short) %></td> <td class="price"><%=to_money @totals[date] %></td> </tr>
-          <% end %>
+          <% end -%>
           <tr> <td class="category"><%= expense.category.name %></td> <td><%= expense.title %></td> <td class="price"><%= to_money expense.amount %></td> </tr>
-        <% end %>
+        <% end -%>
       </tbody>
     </table>
   </div>
@@ -45,7 +45,7 @@
         </thead>
         <tbody>
           <% categories.each do |category, amount| -%>
-            <tr><td><%= category %></td><td class="price"><%= to_money amount %></td></tr>
+            <tr><td class="category"><%= category %></td><td class="price"><%= to_money amount %></td></tr>
           <% end -%>
         </tbody>
       </table>

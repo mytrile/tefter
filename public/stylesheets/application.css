@@ -45,7 +45,7 @@ body {
   font-size:1.6em;
 }
 
-caption {
+caption, h2 {
   text-align:left;
   padding-left:10px;
   font-size:.7em;
@@ -69,7 +69,7 @@ table {
 }
 
 #expenses .date td,
-#stats .month td
+#stats thead th
 {
   font-weight:bold;
   border-bottom:1px solid #333;
@@ -78,17 +78,25 @@ table {
   color:#444;
 }
 
-td {
+#stats thead th {
+  text-align:left;
+}
+#stats thead th.price {
+  text-align:right;
+}
+
+td, th {
   border-bottom:1px solid #ccc;
   padding:3px 10px;
 }
 
-#expenses .price {
+td.price, 
+th.price {
   text-align:right;
   font-style:italic;
 }
 
-#expenses .category {
+td.category {
   font-variant:small-caps;
   text-transform:uppercase;
   font-size:70%;
