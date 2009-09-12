@@ -1,114 +1,168 @@
-html {
-  background-color:#111;
+/* Reset
+------------------------------ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background-color: transparent;
 }
-  
 body {
-  color:#222;
-  font:90% sans-serif; 
-  background-color:#222;
-  min-height:100%;
-  padding:1em 2em;
-  width:1200px;
-  margin:0 auto;
+	line-height: 1;
 }
-
-#main {
-  background-color:#FFFFD1;
-  padding:2em 1em;
+ol, ul {
+	list-style: none;
 }
-
-#new-expense { 
-  margin:0;
-  padding:0;
+blockquote, q {
+	quotes: none;
 }
-
-.hidden {
-  display:none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
-
-#new-expense legend {
-  position:relative;
-  top:-5px;
-  color:white;
+ins {
+	text-decoration: none;
 }
-
-#new-expense fieldset {
-  margin:0;
-  border:0;
-  background-color:#7F8C6C;
-  color:#222;
+del {
+	text-decoration: line-through;
 }
-
-#new-expense input, 
-#new-expense select, 
-#new-expense label
-{
-  font-size:1.6em;
-}
-
-caption, h2 {
-  text-align:left;
-  padding-left:10px;
-  font-size:.7em;
-  font-weight:bold;
-}
-
 table {
-  width:90%;
-  margin-top:1em;
-  border-collapse:collapse;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-#expenses {
-  width:80%;
-  float:left;
+
+
+/* Global Styles
+------------------------------ */
+
+body {
+	margin: 0;
+	background-color: #F0FBFE;
+	color: #003F55;
+	font: normal 1em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-#stats {
-  width:20%;
-  float:left;
+a:link    { color: #333; }
+a:visited { color: #666; }
+a:hover,
+a:active  { color: #000; }
+
+h1 {
+	margin: 0 0 -.5em;
+	color: #A8C2CB;
+	font-size: 1.3em;
+	text-shadow: 0 1px 0 #FFF;
+}
+.hidden {
+	display: none !important;
 }
 
-#expenses .date td,
-#stats thead th
-{
-  font-weight:bold;
-  border-bottom:1px solid #333;
-  padding-top:1em;
-  font-size:80%;
-  color:#444;
-}
 
-#stats thead th {
-  text-align:left;
-}
-#stats thead th.price {
-  text-align:right;
-}
 
-td, th {
-  border-bottom:1px solid #ccc;
-  padding:3px 10px;
-}
-
-td.price, 
-th.price {
-  text-align:right;
-  font-style:italic;
-}
-
-td.category {
-  font-variant:small-caps;
-  text-transform:uppercase;
-  font-size:70%;
-}
+/* Misc
+------------------------------ */
 
 p.notice {
-  background-color:#FFFFD1;
-  margin-top:-1em;
-  margin-left:-2em;
-  margin-right:-2em;
-  text-align:center;
-  line-height:2em;
-  border-bottom:2px inset #7F8C6C;
+	margin: 0;
+  padding: 1em 0;
+	border-bottom: 1px solid #E3E489;
+	background-color: #FEFFBE;
+	color: #313200;
+	font-weight: bold;
+	text-align: center;
 }
+
+
+
+/* Styles
+------------------------------ */
+
+/* Layout */
+
+#main {
+	padding: 30px;
+	font-size: .85em;
+	overflow: hidden;
+}
+	#expenses {
+		float: left;
+	  width: 70%;
+	}
+	#stats {
+		float: right;
+	  width: 25%;
+	}
+
+
+/* Form */
+
+fieldset {
+	border-bottom: 1px solid #BFD5DD;
+  background: #FFF url(logo.png) no-repeat 97% center;
+	font-size: .85em;
+}
+	fieldset p {
+		margin: 0;
+		padding: 1em 30px;
+	}
+	fieldset input,
+	fieldset select,
+	fieldset label {
+		font-size: 1.1em;
+	}
+
+
+/* Table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+	table td,
+	table th {
+		padding: .3em 0;
+		border-bottom: 1px solid #D8E8ED;
+	}
+	table th {
+		padding-top: 2em;
+		border-color: #A8C2CB;
+		color: #003F55;
+		text-align: left;
+	}
+	
+	
+	/* Date */
+	
+	table tr.date td {
+		padding-top: 2em;
+	  border-color: #003F55;
+	  color: #003F55;
+		font-weight:bold;
+	}
+	
+	
+	/* Category */
+	
+	table td.category {
+		color: #A8C2CB;
+		font-variant: small-caps;
+		text-shadow: 0 1px 0 #FFF;
+	  text-transform: uppercase;
+	}
+	
+	
+	/* Price */
+	
+	table th.price {
+		text-align: right;
+	}
+	table td.price {
+		font-weight: bold;
+		text-align: right;
+		text-shadow: 0 1px 0 #FFF;
+	}
