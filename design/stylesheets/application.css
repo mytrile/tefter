@@ -103,7 +103,7 @@ p.notice {
 
 fieldset {
 	border-bottom: 1px solid #BFD5DD;
-  background: #FFF url(logo.png) no-repeat 97% center;
+  background: #FFF url(../images/logo.png) no-repeat 97% center;
 	font-size: .85em;
 }
 	fieldset p {

@@ -1,7 +1,6 @@
 
 <% form_for @expense, :html => { :id => 'new-expense' } do |f| %>
   <fieldset>
-    <legend>Add new expense</legend>
     <p>
     <%= f.label :amount, 'I spent' %>
     <%= f.text_field :amount, :size => 6 %>
