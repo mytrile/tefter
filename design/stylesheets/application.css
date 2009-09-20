@@ -166,3 +166,7 @@ table {
 		text-align: right;
 		text-shadow: 0 1px 0 #FFF;
 	}
+/* Pagination */
+  .pagination {
+    margin-top:1em;
+  }

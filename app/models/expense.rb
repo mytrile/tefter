@@ -11,7 +11,7 @@ class Expense < ActiveRecord::Base
 
   def self.in_pages_with_totals(options)
     expenses = paginate options.merge(:order => 'created_at desc, id desc')
-    return [ [], {}] if expenses.empty?
+    return [ expenses, {}] if expenses.empty?
     range = (expenses.last.created_at .. expenses.first.created_at)
     totals = sum(:amount, :conditions => { :created_at => range }, :group => :created_at)
     [expenses, totals]

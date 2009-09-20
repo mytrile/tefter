@@ -1,5 +1,5 @@
-Then /^I should see 1 expense$/ do
-  response.should have_tag '#expenses tbody tr', 2
+Then /^I should see (\d+) expenses?$/ do |count|
+  response.should have_tag '#expenses tbody tr', count.to_i + 1
 end
 
 Then /^I should have spent (\d+) bucks for (.+)$/ do |amount, time|
@@ -13,3 +13,8 @@ Then /^I should have spent (\d+) bucks for (.+)$/ do |amount, time|
   end
 end
 
+Given /^I have (\d+) expenses?$/ do |count|
+  count.to_i.times do
+    Factory(:expense)
+  end
+end
