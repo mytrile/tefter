@@ -18,3 +18,7 @@ Given /^I have (\d+) expenses?$/ do |count|
     Factory(:expense)
   end
 end
+
+Given /^I have spent (\d+) for (.+) \- (.+)$/ do |amount, title, category_name|
+  Factory :expense, :amount => amount, :title => title, :category_name => category_name
+end

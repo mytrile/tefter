@@ -26,13 +26,16 @@ class Expense < ActiveRecord::Base
 
     while start_date >= end_date
       interval = (start_date.beginning_of_month..start_date)
-      ex_for_month = Expense.sum(:amount, :order => 'sum_amount desc', :group => 'categories.name', :include => :category, :conditions => { :created_at => interval })
+      ex_for_month = Expense.sum(:amount, :order => 'sum_amount desc', :group => :category, :include => :category, :conditions => { :created_at => interval })
       stats[start_date.strftime('%B')] = ex_for_month
       start_date = (start_date - 1.month).end_of_month
     end
 
     stats
+  end
 
+  def category_name
+    category.try(:name) || @category_name
   end
 
   protected

@@ -21,6 +21,17 @@ describe ExpensesController do
       Expense.should_receive(:stats).and_return({})
       get :index
     end
+  end
+
+  describe "Filtered by category" do 
+    before do
+      @category = stub_model(Category)
+      Category.stub! :find => @category
+      @category.expenses.should_receive(:in_pages_with_totals).and_return([[], {}])
+      get 'index', :category_id => @category.id
+    end
+
+    it { should assign_to(:category).with(@category) }
 
   end
 

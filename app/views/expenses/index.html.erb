@@ -15,7 +15,11 @@
 
 <div id="main">
   <div id="expenses">
-    <h2>Recent expenses:</h2>
+    <% if @category -%>
+      <h2>Expenses marked as <%=h @category.name -%></h2>
+    <% else -%>
+      <h2>Recent expenses:</h2>
+    <% end -%>
     <table>
       <colgroup>
         <col width="15%" />
@@ -29,7 +33,10 @@
             <% date = expense.created_at -%>
             <tr class="date"> <td colspan="2"><%= date.to_s(:short) %></td> <td class="price"><%=to_money @totals[date] %></td> </tr>
           <% end -%>
-          <tr> <td class="category"><%= expense.category.name %></td> <td><%= expense.title %></td> <td class="price"><%= to_money expense.amount %></td> </tr>
+          <tr> 
+            <td class="category"><%= link_to expense.category.name, category_expenses_path(expense.category) %></td> 
+            <td><%= expense.title %></td> <td class="price"><%= to_money expense.amount %></td> 
+          </tr>
         <% end -%>
       </tbody>
     </table>
@@ -45,7 +52,10 @@
         </thead>
         <tbody>
           <% categories.each do |category, amount| -%>
-            <tr><td class="category"><%= category %></td><td class="price"><%= to_money amount %></td></tr>
+            <tr>
+              <td class="category"><%= link_to category.name, category_expenses_path(category) %></td>
+              <td class="price"><%= to_money amount %></td>
+            </tr>
           <% end -%>
         </tbody>
       </table>

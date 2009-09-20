@@ -8,24 +8,24 @@ describe Expense do
 
   context "on create" do
     it "should create a new category if none present with the same name" do
-      ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+      ex = Factory(:expense, :category_name => "Booze")
       ex.category.name.should == "Booze"
     end
 
     it "should reuse category if it is already present" do
-      ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
-      ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "Booze"
+      ex1 = Factory(:expense, :category_name => "Booze")
+      ex2 = Factory(:expense, :category_name => "Booze")
       ex1.category.should == ex2.category
     end
 
     it "should be case insensitive for category name" do
-      ex1 = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "booze"
-      ex2 = Expense.create :title => "Lagavulin", :amount => 30, :category_name => "bOOze"
+      ex1 = Factory(:expense, :category_name => "bOOze")
+      ex2 = Factory(:expense, :category_name => "Booze")
       ex1.category.should == ex2.category
     end
 
     it "should set created on to today by default" do
-      ex = Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
+      ex = Factory(:expense)
       ex.created_at.should == Date.today
     end
 
@@ -36,7 +36,7 @@ describe Expense do
     end
   end
 
-  context "day totals" do
+  context "- day totals" do
     before do
       Expense.create :title => "Talisker 18 yrs old", :amount => 40, :category_name => "Booze"
       Expense.create :title => "Talisker 18 yrs old", :amount => 50, :category_name => "Booze"
@@ -70,12 +70,19 @@ describe Expense do
 
     it "should provide statistics for this month" do
       @stats.keys.should include(@this_month)
-      @stats[@this_month]['Booze'].should == 40
+      @stats[@this_month][Category.find_by_name('Booze')].should == 40
     end
 
     it "should provide statistics for last month" do
       @stats.keys.should include(@last_month)
-      @stats[@last_month]['Booze'].should == 80
+      @stats[@last_month][Category.find_by_name('Booze')].should == 80
+    end
+  end
+
+  context "with parent category" do
+    it "should default category name if parent present" do
+      category = Factory(:category)
+      category.expenses.new.category_name.should == category.name
     end
   end
 

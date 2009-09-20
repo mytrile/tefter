@@ -1,7 +1,10 @@
 class ExpensesController < ApplicationController
+
+  before_filter :check_for_category
+
   def index
-    @expense = Expense.new
-    @expenses, @totals = Expense.in_pages_with_totals :page => params[:page]
+    @expense = context.new
+    @expenses, @totals = context.in_pages_with_totals :page => params[:page]
     @stats = Expense.stats
   end
 
@@ -14,6 +17,16 @@ class ExpensesController < ApplicationController
       flash[:error] = "Expense not added."
       render :action => 'index'
     end
+  end
+
+  private
+
+  def check_for_category
+    @category = Category.find(params[:category_id]) if params[:category_id]
+  end
+
+  def context
+    @category.try(:expenses) || Expense
   end
 
 end

@@ -1,6 +1,6 @@
 Feature: Manage expenses
   In order to see where my money are spent, 
-  I want to be able to enter new expenses
+  I want to be able to enter new expense, and review my current ones
   
   Scenario: Register new expense
     Given I am on the homepage
@@ -18,3 +18,13 @@ Feature: Manage expenses
     Then I should see 30 expenses
     When I paginate to page 2
     Then I should see 20 expenses
+  
+  Scenario: Filtering by categories
+    Given I have spent 50 for Lagavulin - Booze
+    And I have spent 40 for Talisker - Booze
+    And I have spent 30 for Cohiba - Blaze
+    When I am on the homepage
+    And I follow "Booze"
+    Then the "category" field should contain "Booze"
+    Then I should see "Expenses marked as Booze"
+    And I should see 2 expenses
