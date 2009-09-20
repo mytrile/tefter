@@ -148,11 +148,12 @@ table {
 	
 	/* Category */
 	
-	table td.category {
+	table td.category a{
 		color: #A8C2CB;
 		font-variant: small-caps;
 		text-shadow: 0 1px 0 #FFF;
 	  text-transform: uppercase;
+    text-decoration: none;
 	}
 	
 	
