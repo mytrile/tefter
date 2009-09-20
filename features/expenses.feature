@@ -28,3 +28,14 @@ Feature: Manage expenses
     Then the "category" field should contain "Booze"
     Then I should see "Expenses marked as Booze"
     And I should see 2 expenses
+
+  Scenario: Editing expense
+    Given I have spent 50 for Lagavulin - Booze
+    And I am on the homepage
+    When I follow "Lagavulin" 
+    And I fill in "category" with "Recr."
+    And I fill in "For" with "Talisker"
+    And I fill in "I spent" with "30"
+    And I press "Change"
+    Then I should see "Expense updated" 
+    And I should have spent 30 bucks for this month

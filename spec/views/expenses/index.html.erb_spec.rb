@@ -94,4 +94,18 @@ describe "/expenses/index" do
     end
   end
 
+  context "- editing" do
+    before do
+      @expense = stub_model(Expense, :title => "Talisker", :amount => 50)
+      assigns[:expenses] = [ @expense ]
+      template.stub! :link_to_category
+    end
+    
+    it "should provide edit link for expense" do 
+      render "expenses/index"
+      response.should have_selector "a", :href => edit_expense_path(@expense)
+    end
+    
+  end
+
 end

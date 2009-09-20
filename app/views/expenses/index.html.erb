@@ -1,17 +1,5 @@
 
-<% form_for @expense, :html => { :id => 'new-expense' } do |f| %>
-  <fieldset>
-    <p>
-    <%= f.label :amount, 'I spent' %>
-    <%= f.text_field :amount, :size => 6 %>
-    <%= f.label :title, 'For' %>
-    <%= f.text_field :title, :size => 30 %>
-    <%= f.label :category_name, 'Category', :class => 'hidden' %>
-    <%= f.text_field :category_name, :size => 10 %>
-    <input type="submit" value="Cough!" />
-    </p>
-  </fieldset>
-<% end %>
+<%= render :partial => 'expenses/form' %>
 
 <div id="main">
   <div id="expenses">
@@ -34,8 +22,9 @@
             <tr class="date"> <td colspan="2"><%= date.to_s(:short) %></td> <td class="price"><%=to_money @totals[date] %></td> </tr>
           <% end -%>
           <tr> 
-            <td class="category"><%= link_to expense.category.name, category_expenses_path(expense.category) %></td> 
-            <td><%= expense.title %></td> <td class="price"><%= to_money expense.amount %></td> 
+            <td class="category"><%= link_to_category(expense.category) -%></td> 
+            <td><%= link_to_edit_expense expense -%></td> 
+            <td class="price"><%= to_money expense.amount %></td> 
           </tr>
         <% end -%>
       </tbody>
@@ -53,7 +42,7 @@
         <tbody>
           <% categories.each do |category, amount| -%>
             <tr>
-              <td class="category"><%= link_to category.name, category_expenses_path(category) %></td>
+              <td class="category"><%= link_to_category(category) -%></td>
               <td class="price"><%= to_money amount %></td>
             </tr>
           <% end -%>

@@ -7,7 +7,9 @@ class Expense < ActiveRecord::Base
   belongs_to :category
 
   validate :check_category_name
-  before_create :bind_category, :set_created_at
+  before_create :set_created_at
+  before_save :bind_category
+   
 
   def self.in_pages_with_totals(options)
     expenses = paginate options.merge(:order => 'created_at desc, id desc')
@@ -35,7 +37,7 @@ class Expense < ActiveRecord::Base
   end
 
   def category_name
-    category.try(:name) || @category_name
+    @category_name || category.try(:name)
   end
 
   protected

@@ -8,6 +8,10 @@ class ExpensesController < ApplicationController
     @stats = Expense.stats
   end
 
+  def edit
+    @expense = context.find(params[:id])
+  end
+
   def create
     @expense = Expense.create params[:expense]
     if @expense.valid? 
@@ -16,6 +20,17 @@ class ExpensesController < ApplicationController
     else
       flash[:error] = "Expense not added."
       render :action => 'index'
+    end
+  end
+
+  def update
+    @expense = context.find(params[:id])
+    @expense.update_attributes params[:expense]
+    flash[:notice] = "Expense updated"
+    if @category
+      redirect_to category_expenses_path(@category)
+    else
+      redirect_to root_path
     end
   end
 

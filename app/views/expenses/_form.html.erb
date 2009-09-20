@@ -1,0 +1,18 @@
+<% subject = @category ? [ @category, @expense ] : @expense -%>
+<% form_for subject, :html => { :id => 'new-expense' } do |f| %>
+  <fieldset>
+    <p>
+    <%= f.label :amount, 'I spent' %>
+    <%= f.text_field :amount, :size => 6 %>
+    <%= f.label :title, 'For' %>
+    <%= f.text_field :title, :size => 30 %>
+    <%= f.label :category_name, 'Category', :class => 'hidden' %>
+    <%= f.text_field :category_name, :size => 10 %>
+    <% if @expense.new_record? -%>
+    <input type="submit" value="Cough!" />
+    <% else -%>
+      <input type="submit" value="Change" /> or <%= link_to "Cancel", root_path -%>
+    <% end -%>
+    </p>
+  </fieldset>
+<% end %>

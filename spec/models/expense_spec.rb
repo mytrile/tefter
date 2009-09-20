@@ -34,6 +34,13 @@ describe Expense do
       ex.should_not be_valid
       ex.category.should be_nil
     end
+
+    it "should update its category" do
+      ex = Factory(:expense, :category_name => "Booze")
+      ex.update_attributes! :category_name => "Blaze"
+      ex.reload
+      ex.category.name.should == "Blaze"
+    end
   end
 
   context "- day totals" do
@@ -85,5 +92,7 @@ describe Expense do
       category.expenses.new.category_name.should == category.name
     end
   end
+
+
 
 end

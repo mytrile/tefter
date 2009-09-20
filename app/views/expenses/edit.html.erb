@@ -1,0 +1,5 @@
+<p class="notice">
+  Editing <%= to_money(@expense.amount) -%> for <%= @expense.title -%> (<%= @expense.category_name -%>)
+</p>
+
+<%= render :partial => "expenses/form"  -%>
