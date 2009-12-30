@@ -1,18 +1,22 @@
-<% subject = @category ? [ @category, @expense ] : @expense -%>
-<% form_for subject, :html => { :id => 'new-expense' } do |f| %>
-  <fieldset>
-    <p>
-    <%= f.label :amount, 'I spent' %>
-    <%= f.text_field :amount, :size => 6 %>
-    <%= f.label :title, 'For' %>
-    <%= f.text_field :title, :size => 30 %>
-    <%= f.label :category_name, 'Category', :class => 'hidden' %>
-    <%= f.text_field :category_name, :size => 10 %>
-    <% if @expense.new_record? -%>
-    <input type="submit" value="Cough!" />
-    <% else -%>
-      <input type="submit" value="Change" /> or <%= link_to "Cancel", root_path -%>
-    <% end -%>
-    </p>
-  </fieldset>
-<% end %>
+<div id="expense_submit" class="panel">
+	
+	<h2 class="header">Add New Expense</h2>
+	
+	<% subject = @category ? [ @category, @expense ] : @expense -%>
+	<% form_for subject, :html => { :id => 'new-expense' } do |f| %>
+	    <%= f.label :amount, 'I spent' %>
+	    <%= f.text_field :amount, :size => 6 %>
+		<div class="cleaner">&nbsp;</div>
+	    <%= f.label :title, 'For' %>
+	    <%= f.text_field :title, :size => 15 %>
+		<div class="cleaner">&nbsp;</div>
+	    <%= f.label :category_name, 'Category' %>
+	    <%= f.text_field :category_name, :size => 10 %>
+	    <% if @expense.new_record? -%>
+	    <input class="submit" type="submit" value="Add expense" />
+	    <% else -%>
+	      <input class="submit" type="submit" value="Make the change" /> or <%= link_to "Cancel", root_path -%>
+	    <% end -%>
+	<% end %>
+</div>
+<div class="cleaner">&nbsp;</div>

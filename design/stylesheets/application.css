@@ -1,173 +1,101 @@
-/* Reset
------------------------------- */
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	border: 0;
-	padding: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background-color: transparent;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-ins {
-	text-decoration: none;
-}
-del {
-	text-decoration: line-through;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
+@import url('reset.css');
 
 /* Global Styles
 ------------------------------ */
 
-body {
-	margin: 0;
-	background-color: #F0FBFE;
-	color: #003F55;
-	font: normal 1em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
-}
-
+body { margin: 0; font: normal 1em/1.5 Verdana, Arial, Helvetica, sans-serif; }
 a:link    { color: #333; }
 a:visited { color: #666; }
 a:hover,
 a:active  { color: #000; }
 
-h1 {
-	margin: 0 0 -.5em;
-	color: #A8C2CB;
-	font-size: 1.3em;
-	text-shadow: 0 1px 0 #FFF;
-}
-.hidden {
-	display: none !important;
-}
-
-
-
-/* Misc
------------------------------- */
-
-p.notice {
-	margin: 0;
-  padding: 1em 0;
-	border-bottom: 1px solid #E3E489;
-	background-color: #FEFFBE;
-	color: #313200;
-	font-weight: bold;
-	text-align: center;
-}
-
-
-
+.hidden { display: none !important; }
+.cleaner { height: 1px; clear: both; overflow: hidden;   }
 /* Styles
 ------------------------------ */
 
 /* Layout */
 
-#main {
-	padding: 30px;
-	font-size: .85em;
-	overflow: hidden;
+#page_container { width: 1000px; margin: 0 auto;  }
+
+#bar { border: solid #CCC; border-width: 0 1px 1px 1px; font-size: 10px; height: 25px; line-height: 25px; color: #999; margin-bottom: 30px; }
+#bar a { color: #999; }
+#bar_left p { padding-left: 10px; }
+#bar_right p { padding-right: 10px; text-align: right;  }
+
+#header { height: 70px; background: url('../images/header_bgrd.gif') left top no-repeat; }
+#header h1 { width: 100%; height: 100%; }
+#header h1 a { display: block; width: 100%; height: 100%; text-indent: -1920px; overflow: hidden;     }
+
+#page_content { padding: 40px 20px 20px 20px;  }
+
+.col { float: left; overflow: hidden;  }
+.col.w2 { width: 50%; }
+
+.panel { width: 50%; float: left; overflow: hidden; margin-bottom: 40px; }
+.panel .header { margin-bottom: 10px; }
+.panel .content { padding-right: 20px; }
+
+.panel .header,
+.panel#expense_submit,
+.panel#expense_submit input,
+.panel#statistics { font: 36px Anivers, "Trebuchet MS", Verdana, sans-serif; color: #284346; }
+
+.panel#statistics p { font-size: 24px; padding: 0 40px 20px 0; }
+
+.panel#expense_submit label { font-size: 21px; width: 120px; float: left; padding: 7px 0; text-align: right; margin-right: 15px; }
+.panel#expense_submit input { font-size: 21px; color: #505050; background: #f4f4f4; border: 1px solid #CCC; padding: 7px 7px 3px 7px; clear: both; }
+.panel#expense_submit input#expense_category_name { width: 52%;  }
+.panel#expense_submit .submit { display: block; clear: both; padding: 0; margin: 20px 0 0 135px; width: 269px; height: 40px; line-height: 44px; background: url('../images/button_expense_add.gif') left top no-repeat; border: none; color: #FFF; font-size: 21px; text-shadow: #2e4b4d 3px 3px 3px; cursor: pointer; }
+.panel#expense_submit .cleaner { height: 15px;  }
+
+.panel table { width: 99%; margin-left: 1px; margin-bottom: 20px;  }
+.panel table td,
+.panel table th { border: 1px solid #CCC; }
+.panel table td a,
+.panel table th a { text-decoration: none;  }
+
+.panel table td,
+.panel table th { padding: 4px 6px; }
+
+.panel table th {  }
+.panel table td {  }
+
+.panel table thead td,
+.panel table thead th { border-bottom: solid #CCC; border-top-width: 3px; border-bottom-width: 3px; text-align: left;  }
+
+.panel table .price { text-align: right; width: 25%;  }
+.panel table .category { font-style: italic; color: #284346; }
+
+
+
+/* Mesages --- Information, Success, Errors */
+
+p.notice {
+	margin: 0 0 20px 0;
+	padding: 1em 0;
 }
-	#expenses {
-		float: left;
-	  width: 70%;
-	}
-	#stats {
-		float: right;
-	  width: 25%;
-	}
 
-
-/* Form */
-
-fieldset {
-	border-bottom: 1px solid #BFD5DD;
-  background: #FFF url(../images/logo.png) no-repeat 97% center;
-	font-size: .85em;
+p.notice .inner {
+	
 }
-	fieldset p {
-		margin: 0;
-		padding: 1em 30px;
-	}
-	fieldset input,
-	fieldset select,
-	fieldset label {
-		font-size: 1.1em;
-	}
 
-
-/* Table */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+/* Rounded corners --- */
+.panel table,
+.panel table th,
+.panel table td { 
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 }
-	table td,
-	table th {
-		padding: .3em 0;
-		border-bottom: 1px solid #D8E8ED;
-	}
-	table th {
-		padding-top: 2em;
-		border-color: #A8C2CB;
-		color: #003F55;
-		text-align: left;
-	}
-	
-	
-	/* Date */
-	
-	table tr.date td {
-		padding-top: 2em;
-	  border-color: #003F55;
-	  color: #003F55;
-		font-weight:bold;
-	}
-	
-	
-	/* Category */
-	
-	table td.category a{
-		color: #A8C2CB;
-		font-variant: small-caps;
-		text-shadow: 0 1px 0 #FFF;
-	  text-transform: uppercase;
-    text-decoration: none;
-	}
-	
-	
-	/* Price */
-	
-	table th.price {
-		text-align: right;
-	}
-	table td.price {
-		font-weight: bold;
-		text-align: right;
-		text-shadow: 0 1px 0 #FFF;
-	}
-/* Pagination */
-  .pagination {
-    margin-top:1em;
-  }
+
+.panel#expense_submit input { 
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+}
+
+#bar {
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+}

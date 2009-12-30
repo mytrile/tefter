@@ -1,55 +1,64 @@
-
 <%= render :partial => 'expenses/form' %>
 
-<div id="main">
-  <div id="expenses">
-    <% if @category -%>
-      <h2>Expenses marked as <%=h @category.name -%></h2>
-    <% else -%>
-      <h2>Recent expenses:</h2>
-    <% end -%>
-    <table>
-      <colgroup>
-        <col width="15%" />
-        <col width="60%" />
-        <col width="25%" />
-      </colgroup>
-      <tbody>
-        <% date = nil %>
-        <% @expenses.each do |expense| -%>
-          <% if date != expense.created_at -%>
-            <% date = expense.created_at -%>
-            <tr class="date"> <td colspan="2"><%= date.to_s(:short) %></td> <td class="price"><%=to_money @totals[date] %></td> </tr>
-          <% end -%>
-          <tr> 
-            <td class="category"><%= link_to_category(expense.category) -%></td> 
-            <td><%= link_to_edit_expense expense -%></td> 
-            <td class="price"><%= to_money expense.amount %></td> 
-          </tr>
-        <% end -%>
-      </tbody>
-    </table>
-    <%= will_paginate @expenses -%>
-  </div>
+	<div id="expenses" class="panel">
+		
+		<% if @category -%>
+			<h2 class="header">Expenses marked as <%=h @category.name -%></h2>
+		<% else -%>
+			<h2 class="header">Recent expenses:</h2>
+		<% end -%>
+		<div class="content">
+			<table>
+				<colgroup>
+					<col class="category" />
+					<col width="expense" />
+					<col width="price" />
+				</colgroup>
+					<% date = nil %>
+					<% @expenses.each do |expense| -%>
+					<% if date != expense.created_at -%>
+					<% date = expense.created_at -%>
+					<thead>
+						<tr class="date">
+							<th class="price"><%=to_money @totals[date] %></th>
+							<th colspan="2"><%= date.to_s(:short) %></th>
+						</tr>
+					</thead>	
+					<% end -%>
+					<tbody>
+						<tr> 
+							<td class="price"><%= to_money expense.amount %></td> 
+							<td class="expense"><%= link_to_edit_expense expense -%></td> 
+							<td class="category"><%= link_to_category(expense.category) -%></td> 
+						</tr>
+					</tbody>
+					<% end -%>
+			</table>
+		</div>
+		<%= will_paginate @expenses -%>
+	</div>
 
-  <div id="stats">
-    <h2>How am I going?</h2>
-    <% @stats.each do |month, categories| -%>
-      <table summary="Expenses for <%= month %>">
-        <thead>
-          <tr><th><%= month %></th> <th class="price"><%=to_money categories.values.sum %></th> </tr>
-        </thead>
-        <tbody>
-          <% categories.each do |category, amount| -%>
-            <tr>
-              <td class="category"><%= link_to_category(category) -%></td>
-              <td class="price"><%= to_money amount %></td>
-            </tr>
-          <% end -%>
-        </tbody>
-      </table>
-    <% end -%>
-  </div>
-  <br style="clear:both" />
-</div>
+	<div id="stats" class="panel">
+		
+		<h2 class="header">How am I going?</h2>
 
+		<% @stats.each do |month, categories| -%>
+			<table summary="Expenses for <%= month %>">
+				<thead>
+					<tr>
+						<th class="price"><%=to_money categories.values.sum %></th>
+						<th><%= month %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% categories.each do |category, amount| -%>
+						<tr>
+							<td class="price"><%= to_money amount %></td>
+							<td class="category"><%= link_to_category(category) -%></td>
+						</tr>
+					<% end -%>
+				</tbody>
+			</table>
+		<% end -%>
+		
+	</div>

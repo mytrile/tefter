@@ -1,16 +1,41 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
-Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>PiggyBank &mdash; where's ma money?</title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag :defaults %>
-  </head>
+<head>
+	<title>PiggyBank &mdash; where's ma money?</title>
+	<%= stylesheet_link_tag 'application' %>
+	<%= javascript_include_tag :defaults %>
+</head>
+<body>
+	<div id="page_container">
+		<div id="bar">
+			<div id="bar_left" class="col w2">
+				<p>Logged in as: Koki4a</p>
+			</div>
+			<div id="bar_right" class="col w2">
+				<p><a href="#">Log out</a></p>
+			</div>
+		</div>
 
-  <body>
-    <%= content_tag :p, flash[:notice], :class => :notice if flash[:notice] %>
-    <%= content_tag :p, flash[:error], :class => :error if flash[:error] %>
-    <%= yield %>
-  </body>
+		<div id="header">
+			<h1><a href="#" title="title">Tefter</a></h1>
+		</div>
+		<div id="page_content">
+
+			<%= content_tag :p, flash[:notice], :class => :notice if flash[:notice] %>
+			<%= content_tag :p, flash[:error], :class => :error if flash[:error] %>
+
+			<div id="statistics" class="panel">
+				
+				<h2 class="header">Statistics</h2>
+				
+				<p>$1,500.00  for January</p>
+				<p>You spent $100.00 average per day this month</p>
+				
+			</div>
+
+			<%= yield %>
+
+		</div>
+	</div>
+</body>
 </html>
