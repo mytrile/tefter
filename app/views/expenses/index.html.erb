@@ -9,11 +9,6 @@
 		<% end -%>
 		<div class="content">
 			<table>
-				<colgroup>
-					<col class="category" />
-					<col width="expense" />
-					<col width="price" />
-				</colgroup>
 					<% date = nil %>
 					<% @expenses.each do |expense| -%>
 					<% if date != expense.created_at -%>
@@ -21,15 +16,15 @@
 					<thead>
 						<tr class="date">
 							<th class="price"><%=to_money @totals[date] %></th>
-							<th colspan="2"><%= date.to_s(:short) %></th>
+							<th class="expense"><%= date.to_s(:short) %></th>
 						</tr>
 					</thead>	
 					<% end -%>
 					<tbody>
 						<tr> 
 							<td class="price"><%= to_money expense.amount %></td> 
-							<td class="expense"><%= link_to_edit_expense expense -%></td> 
-							<td class="category"><%= link_to_category(expense.category) -%></td> 
+							<td class="expense"><%= link_to_edit_expense expense -%> <span class="category">(<%= link_to_category(expense.category) -%>)</span></td> 
+							
 						</tr>
 					</tbody>
 					<% end -%>
