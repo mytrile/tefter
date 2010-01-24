@@ -1,0 +1,54 @@
+html {
+  border-top: 3px solid black;
+  font-family: helvetica, arial, sans-serif;
+}
+
+body {
+  width: 980px;
+  margin: 0 auto;
+}
+
+h1#logo {
+  width:249px;
+  height:30px;
+  background:white url(../images/logo.png) no-repeat;
+  text-indent:-1000em;
+  overflow:hidden;
+  float:left;
+}
+
+#greeting {
+  float:right;
+  color:white;
+  background-color:black;
+  padding:2px 10px;
+  font-size:12px;
+}
+
+#greeting a {
+  color:#ccc;
+}
+
+#main {
+  clear:both;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #ccc;
+  padding:10px;
+}
+
+#left {
+  width: 470px;
+  margin-right:20px;
+  float:left;
+}
+
+#right {
+  width: 470px;
+  float:left;
+}
+
+.copy p {
+  line-height:1.4em;
+  font-size:13px;
+}

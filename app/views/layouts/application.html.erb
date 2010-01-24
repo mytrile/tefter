@@ -4,15 +4,21 @@
 
   <head>
     <title>Tefter</title>
-    <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
+    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes' %>
   </head>
   <body>
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
+    <h1 id="logo">Tefter &ndash; Get a Grip of Your Expenses</h1>
+    <div id="greeting">
+      <% if signed_in? -%>
+        <%=h current_user.email -%> &bull; <%= link_to "sign out", sign_out_path -%>
+      <% else -%>
+        Hey there, why don't you <%= link_to "sign up", sign_up_path -%>?
       <% end -%>
     </div>
-    <%= yield -%>
+    <div id="main">
+      <% unless flash.empty? -%><div id="flash"><% flash.each do |key, value| -%><div id="flash_<%= key %>"><%=h value %></div><% end -%></div><% end -%>
+      <%= yield -%>
+    </div>
   </body>
 </html>
 
