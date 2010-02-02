@@ -8,7 +8,15 @@ module Tefter
     end
 
     let :new_user do
-      mock_model(User, :errors => stub(ActiveRecord::Errors, :null_object => true), :null_object => true).as_new_record
+      mock_model(User, :errors => stub_errors, :null_object => true).as_new_record
+    end
+
+    let :new_user_session do
+      stub(UserSession, :null_object => true, :errors => stub_errors, :id => nil)
+    end
+
+    let :stub_errors do
+      stub(ActiveRecord::Errors, :null_object => true, :count => 0)
     end
 
     let :user do

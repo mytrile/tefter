@@ -8,9 +8,14 @@ module Tefter
         @current_user ||= stub_model(User, stubs)
       end
 
+      def current_user_session
+        @current_user_session ||= stub(UserSession)
+      end
+
       before :each do
         controller.should_receive(:require_user).and_return(current_user)
         controller.stub!(:current_user).and_return(current_user)
+        controller.stub!(:current_user_session).and_return(current_user_session)
       end
 
     end

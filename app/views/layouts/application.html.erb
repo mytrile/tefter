@@ -12,7 +12,7 @@
       <% if signed_in? -%>
         <%=h current_user.email -%> &bull; <%= link_to "sign out", sign_out_path -%>
       <% else -%>
-        Hey there, why don't you <%= link_to "sign up", sign_up_path -%>?
+        <%= link_to 'sign in', sign_in_path -%> &bull; <%= link_to "sign up", sign_up_path -%>?
       <% end -%>
     </div>
     <div id="main">

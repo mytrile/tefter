@@ -53,7 +53,7 @@ describe ApplicationController do
       get 'new'
     end
 
-    it { should redirect_to sign_up_path }
+    it { should redirect_to root_path }
     it { should set_the_flash }
   end
 end
