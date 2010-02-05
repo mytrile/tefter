@@ -33,3 +33,8 @@ end
 When /^I sign out$/ do
   visit '/sign_out'
 end
+
+Given /I am signed in/ do 
+  Given %{I signed up with "user@example.com/password"}
+  And %{I sign in as "user@example.com/password"}
+end

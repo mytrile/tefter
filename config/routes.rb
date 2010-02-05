@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.sign_out "sign_out", :controller => "user_sessions", :action => "destroy"
   map.resource :users
   map.resource :user_session
+  map.resources :expenses
 
   # rspec needs this
   map.resources :dummies
