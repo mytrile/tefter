@@ -11,7 +11,7 @@ Feature: Signing up
     And I fill in "Password confirmation" with "example"
     And I press "Sign Up"
     Then I should be signed in
-    And I should be on the homepage
+    And I should be on the new expense page
     And I should see "Thanks for signing up"
 
   Scenario: sign up with wrong password confirmation

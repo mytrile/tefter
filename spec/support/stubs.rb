@@ -15,6 +15,11 @@ module Tefter
       stub(UserSession, :null_object => true, :errors => stub_errors, :id => nil)
     end
 
+    let :new_expense do
+      stub_model(Expense).as_new_record
+    end
+
+
     let :stub_errors do
       stub(ActiveRecord::Errors, :null_object => true, :count => 0)
     end

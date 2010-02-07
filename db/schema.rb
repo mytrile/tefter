@@ -9,7 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100124115439) do
+ActiveRecord::Schema.define(:version => 20100207123935) do
+
+  create_table "categories", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["user_id"], :name => "index_categories_on_user_id"
+
+  create_table "expenses", :force => true do |t|
+    t.string   "title"
+    t.integer  "amount",      :limit => 10, :precision => 10, :scale => 0
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.date     "created_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "expenses", ["user_id", "category_id"], :name => "index_expenses_on_user_id_and_category_id"
+  add_index "expenses", ["user_id", "created_on"], :name => "index_expenses_on_user_id_and_created_on"
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -1,2 +1,15 @@
-<h1>Expenses#new</h1>
-<p>Find me in app/views/expenses/new.html.erb</p>
+<h2>File new expense</h2>
+
+<% semantic_form_for @expense do |f| -%>
+
+<% f.inputs do %>
+  <%= f.input :amount, :label => 'I spent' %>
+  <%= f.input :title, :label => 'For' %>
+  <%= f.input :category_name, :label => 'Category', :as => :string %>
+<% end %>
+
+<% f.buttons do  -%>
+<%= f.commit_button -%>
+<% end -%>
+
+<% end -%>
