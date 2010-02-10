@@ -1,3 +1,9 @@
+ci
+ci:acceptance
+ci:cucumber
+ci:deploy
+ci:spec
+ci:symlink_db_config
 cucumber
 cucumber:all
 cucumber:ok
