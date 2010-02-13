@@ -19,6 +19,10 @@ module Tefter
       stub_model(Expense).as_new_record
     end
 
+    let :expense do
+      stub_model(Expense, :amount => 10, :created_on => Date.today, :category => category)
+    end
+
 
     let :stub_errors do
       stub(ActiveRecord::Errors, :null_object => true, :count => 0)
@@ -34,7 +38,7 @@ module Tefter
 
     let :expenses do
       WillPaginate::Collection.create(1, 30, 300) do |pager|
-        pager.replace [ stub_model(Expense, :amount => 10, :created_on => Date.today, :category => category) ] * 30
+        pager.replace [expense] * 30
       end
     end
 

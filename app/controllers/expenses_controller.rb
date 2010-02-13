@@ -23,4 +23,10 @@ class ExpensesController < ApplicationController
   def edit
   end
 
+  def destroy
+    current_user.expenses.find(params[:id]).destroy
+    flash[:notice] = "Expense deleted."
+    redirect_to expenses_path
+  end
+
 end

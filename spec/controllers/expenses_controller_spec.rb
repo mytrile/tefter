@@ -63,4 +63,16 @@ describe ExpensesController do
       response.should be_success
     end
   end
+
+  describe "DELETE 'destroy'" do
+    before { current_user.expenses.stub! :find => expense }
+    before { expense.should_receive(:destroy) }
+
+    before do
+      delete :destroy, :id => expense.id
+    end
+
+    it { should redirect_to expenses_path }
+    it { should set_the_flash }
+  end
 end

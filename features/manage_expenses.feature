@@ -19,3 +19,11 @@ Feature: In order to track where do I spend all those money
     When I follow "Expenses (2)"
     Then I should see "yesterday $50.00 Dinner (Food (outside))"
     And I should see "3 Dec $150.00 Dinner (Food (outside))"
+
+  @wip
+  Scenario: removing wrong expense
+    And I am signed in
+    And yesterday I spent 50 for Dinner, Food (outside)
+    When I go to the expenses page
+    And I follow "delete"
+    Then I should see "Expense deleted."

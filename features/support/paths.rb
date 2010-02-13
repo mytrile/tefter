@@ -14,6 +14,8 @@ module NavigationHelpers
       sign_in_path
     when /new expense page/
       new_expense_path
+    when /expenses page/
+      expenses_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

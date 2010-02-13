@@ -5,19 +5,20 @@
 <table id="expenses">
   <colgroup>
     <col width="10%" />
-    <col width="90%" />
+    <col width="80%" />
+    <col width="10%" />
   </colgroup>
   <tbody>
     <% group_by_day(@expenses).each do |date, expenses| -%>
         <tr class="day">
           <th class="money"><%= to_money date.amount -%></th>
-          <th><%= friendly_date date.date -%></th>
+          <th colspan="2"><%= friendly_date date.date -%></th>
         </tr>
         <% expenses.each do |expense| -%>
           <tr class="expense">
             <td class="money"><%= to_money expense.amount -%></td>
-            <td><%= expense.title -%> <span class="category">(<%= expense.category.name -%>)</span>
-            </td>
+            <td><%= expense.title -%> <span class="category">(<%= expense.category.name -%>)</span></td>
+            <td><%= link_to "delete", expense, :method => :delete, :confirm => "Are you sure you want to delete this expense?" -%></td>
           </tr>
         <% end -%>
     <% end -%>
