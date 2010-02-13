@@ -10,7 +10,6 @@ Feature: In order to track where do I spend all those money
     And I press "Create Expense"
     Then I should see "Expense added"
 
-  @wip
   Scenario: reviewing expenses
     Given today is 5 December 2009
     And I am signed in
