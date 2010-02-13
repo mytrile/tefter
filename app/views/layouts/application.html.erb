@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1 id="logo">Tefter &ndash; Get a Grip of Your Expenses</h1>
+
     <div id="greeting">
       <% if signed_in? -%>
         <%=h current_user.email -%> &bull; <%= link_to "sign out", sign_out_path -%>
@@ -15,10 +16,19 @@
         <%= link_to 'sign in', sign_in_path -%> &bull; <%= link_to "sign up", sign_up_path -%>
       <% end -%>
     </div>
+
+    <% if signed_in? -%>
+      <ul id="nav">
+        <li><%= link_to_unless_current "Add Expense", new_expense_path -%></li>
+        <li><%= link_to_unless_current "Expenses (#{@expense_count})", expenses_path -%></li>
+      </ul>
+    <% end -%>
+
     <div id="main">
-      <% unless flash.empty? -%><div id="flash"><% flash.each do |key, value| -%><div id="flash_<%= key %>"><%=h value %></div><% end -%></div><% end -%>
+    <% unless flash.empty? -%><div id="flash"><% flash.each do |key, value| -%><div id="flash_<%= key %>"><%=h value %></div><% end -%></div><% end -%>
       <%= yield -%>
     </div>
+
   </body>
 </html>
 

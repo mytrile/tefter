@@ -31,9 +31,8 @@ h1#logo {
 
 #main {
   clear:both;
-  margin-top:10px;
   padding-top:10px;
-  border-top:1px solid #ccc;
+  border-top:1px solid black;
   padding:10px;
 }
 
@@ -51,4 +50,54 @@ h1#logo {
 .copy p {
   line-height:1.4em;
   font-size:13px;
+}
+
+#nav {
+  clear:both;
+  margin:0;
+  padding:0;
+  margin-bottom:2px;
+}
+
+#nav li {
+  background:white;
+  color:black;
+  display:inline;
+  border:1px solid black;
+  border-bottom:0;
+  padding:3px 10px;
+  -webkit-border-radius:3px;
+  -webkit-border-bottom-left-radius:0px;
+  -webkit-border-bottom-right-radius:0px;
+}
+
+#nav a {
+  color: #999;
+  text-decoration:none;
+}
+
+th {
+  text-align:left;
+}
+.money {
+  font-family:monospace;
+}
+
+#expenses {
+  border-collapse:collapse;
+  width:100%;
+}
+#expenses td,
+#expenses th {
+  padding:3px 10px;
+  padding-left:0;
+}
+
+#expenses .day th {
+  border-bottom:1px solid #ccc;
+  padding-top:2em;
+}
+
+.category {
+  color:#ccc;
 }

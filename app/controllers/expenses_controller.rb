@@ -17,6 +17,7 @@ class ExpensesController < ApplicationController
   end
 
   def index
+    @expenses = current_user.expenses.paginate(:page => params[:page])
   end
 
   def edit

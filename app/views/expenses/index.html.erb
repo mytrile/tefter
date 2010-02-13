@@ -1,2 +1,27 @@
-<h1>Expenses#index</h1>
-<p>Find me in app/views/expenses/index.html.erb</p>
+<h1>Expenses (<%= @expenses.total_entries -%>)</h1>
+
+<%= will_paginate @expenses -%>
+
+<table id="expenses">
+  <colgroup>
+    <col width="10%" />
+    <col width="90%" />
+  </colgroup>
+  <tbody>
+    <% group_by_day(@expenses).each do |date, expenses| -%>
+        <tr class="day">
+          <th class="money"><%= to_money date.amount -%></th>
+          <th><%= friendly_date date.date -%></th>
+        </tr>
+        <% expenses.each do |expense| -%>
+          <tr class="expense">
+            <td class="money"><%= to_money expense.amount -%></td>
+            <td><%= expense.title -%> <span class="category">(<%= expense.category.name -%>)</span>
+            </td>
+          </tr>
+        <% end -%>
+    <% end -%>
+  </tbody>
+</table>
+
+<%= will_paginate @expenses -%>

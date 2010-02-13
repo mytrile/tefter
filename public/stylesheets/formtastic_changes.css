@@ -11,3 +11,7 @@ form.formtastic fieldset ol li p.inline-hints { color:#333; }
 form.formtastic {
   width:550px;
 }
+
+form.formtastic fieldset ol li.numeric input {
+  width:auto;
+}

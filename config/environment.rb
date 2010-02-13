@@ -11,5 +11,6 @@ Rails::Initializer.run do |config|
 
   config.gem 'authlogic'
   config.gem 'formtastic'
+  config.gem 'will_paginate'
 
 end

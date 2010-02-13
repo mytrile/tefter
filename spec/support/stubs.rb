@@ -25,7 +25,17 @@ module Tefter
     end
 
     let :user do
-      mock_model(User)
+      mock_model(User, :expenses => stub(:count => 0))
+    end
+
+    let :category do
+      stub_model(Category, :name => "Food")
+    end
+
+    let :expenses do
+      WillPaginate::Collection.create(1, 30, 300) do |pager|
+        pager.replace [ stub_model(Expense, :amount => 10, :created_on => Date.today, :category => category) ] * 30
+      end
     end
 
   end

@@ -87,6 +87,7 @@ spec:plugins:rspec_on_rails
 spec:rcov
 spec:views
 stats
+tefter:start_dev
 test
 test:benchmark
 test:functionals

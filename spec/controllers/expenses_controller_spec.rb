@@ -46,10 +46,15 @@ describe ExpensesController do
   end
 
   describe "GET 'index'" do
-    it "should be successful" do
+    before { current_user.expenses.should_receive(:paginate).and_return(expenses) }
+
+    before do
       get 'index'
-      response.should be_success
     end
+
+    it { should respond_with :success }
+    it { should assign_to :expenses }
+
   end
 
   describe "GET 'edit'" do
