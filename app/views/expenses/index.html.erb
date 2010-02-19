@@ -1,4 +1,4 @@
-<h1>Expenses (<%= @expenses.total_entries -%>)</h1>
+<h1><%= "#{t(:title_expenses)} (#{@expenses.total_entries}" -%>)</h1>
 
 <%= will_paginate @expenses -%>
 
@@ -18,7 +18,7 @@
           <tr class="expense">
             <td class="money"><%= to_money expense.amount -%></td>
             <td><%= expense.title -%> <span class="category">(<%= expense.category.name -%>)</span></td>
-            <td><%= link_to "delete", expense, :method => :delete, :confirm => "Are you sure you want to delete this expense?" -%></td>
+            <td><%= link_to t(:delete_button), expense, :method => :delete, :confirm => t(:confirm_delete) -%></td>
           </tr>
         <% end -%>
     <% end -%>

@@ -1,15 +1,15 @@
-<h2>Sign Up</h2>
+<h2><%= t(:title_sign_up) %></h2>
 
 <% semantic_form_for @user do |f| -%>
 
 <% f.inputs do %>
-  <%= f.input :email, :label => 'Email' %>
-  <%= f.input :password, :label => 'Password' %>
-  <%= f.input :password_confirmation, :label => 'Password Confirmation' %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
 <% end %>
 
 <% f.buttons do  -%>
-<%= f.commit_button "Sign Up" -%>
+<%= f.commit_button :register -%>
 <% end -%>
 
 <% end -%>

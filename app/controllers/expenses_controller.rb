@@ -9,7 +9,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.create(params[:expense])
     if @expense.valid?
-      flash[:notice] = "Expense added."
+      flash[:notice] = t(:flash_expense_added)
       redirect_to new_expense_path
     else
       render :action => :new
@@ -25,7 +25,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     current_user.expenses.find(params[:id]).destroy
-    flash[:notice] = "Expense deleted."
+    flash[:notice] = t(:flash_expense_deleted)
     redirect_to expenses_path
   end
 

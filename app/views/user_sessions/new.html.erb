@@ -1,17 +1,16 @@
-
-<h2>Sign In</h2>
+<h2><%= t(:title_sign_in) %></h2>
 
 <% semantic_form_for @user_session, :url => user_session_path do |f| -%>
 
   <%= f.error_messages -%>
 
   <% f.inputs do %>
-    <%= f.input :email, :label => 'Email' %>
-    <%= f.input :password, :label => 'Password' %>
+    <%= f.input :email %>
+    <%= f.input :password %>
   <% end %>
 
   <% f.buttons do  -%>
-    <ol><li class="commit"><input class="create" type="submit" value="Sign In" /></li></ol>
+    <ol><li class="commit"><input class="create" type="submit" value="<%= t(:sign_in_button) %>" /></li></ol>
   <% end -%>
 
 <% end -%>

@@ -1,15 +1,15 @@
-<h2>Add New Expense</h2>
+<h2><%= t(:title_add_new_expense) %></h2>
 
 <% semantic_form_for @expense do |f| -%>
 
 <% f.inputs do %>
-  <%= f.input :amount, :label => 'I spent', :input_html => { :size => 10 } %>
-  <%= f.input :title, :label => 'For' %>
-  <%= f.input :category_name, :label => 'Category', :as => :string %>
+  <%= f.input :amount, :input_html => { :size => 10 } %>
+  <%= f.input :title %>
+  <%= f.input :category_name, :as => :string %>
 <% end %>
 
 <% f.buttons do  -%>
-<%= f.commit_button -%>
+<%= f.commit_button-%>
 <% end -%>
 
 <% end -%>

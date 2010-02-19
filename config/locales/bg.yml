@@ -1,0 +1,63 @@
+bg:
+  formtastic:
+    labels:
+      expense:
+        amount: Изхарчих
+        title: За
+        category_name: Категория
+      user_session:
+        email: Email адрес
+        password: Парола
+      user:
+        email: Email адрес
+        password: Парола
+        password_confirmation: Парола(потвърждение)
+    actions:
+      create: Запиши
+      delete: Изтрий
+      register: Напред !
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              too_short: недостатъчна дължина
+            password:
+              too_short: недостатъчна дължина
+              confirmation: паролите трябва да съвпадат
+            password_confirmation:
+              too_short: недостатъчна дължина
+        expense:
+          attributes:
+            amount:
+              blank: не може да е без стойност
+            title:
+              blank: не може да е без стойност
+            category_name:
+              blank: не може да е без стойност
+  support:
+    array:
+      two_words_connector: " и "
+      last_word_connector: " и "
+      words_connector: ", "
+
+  layout_add_expense: Нов разход
+  layout_expenses: Разходи
+
+  title_add_new_expense: Нов разход
+  title_expenses: Разходи
+  title_sign_in: Вход
+  title_sign_up: Регистрация
+
+  confirm_delete: Сигурни ли сте, че искате да изтрието този запис ?
+  delete_button: Изтрий
+  sign_in_button: Влез
+
+  sign_in_link: Вxод
+  sign_out_link: Изход
+  sign_up_link: Регистрация
+
+  flash_expense_added: Записът беше добавен.
+  flash_expense_deleted: Записът беше изтрит.

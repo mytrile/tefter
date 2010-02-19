@@ -11,8 +11,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :signed_in?
 
   before_filter :assign_expense_count
+  before_filter :set_locale
+
+  def default_url_options(options={})
+    { :locale => I18n.locale }
+  end
 
   protected
+
+  def set_locale
+    # if params[:locale] is nil then I18n.default_locale will be used
+    I18n.locale = params[:locale]
+  end
 
   def assign_expense_count
     return unless current_user

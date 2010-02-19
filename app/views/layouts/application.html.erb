@@ -11,16 +11,16 @@
 
     <div id="greeting">
       <% if signed_in? -%>
-        <%=h current_user.email -%> &bull; <%= link_to "sign out", sign_out_path -%>
+        <%=h current_user.email -%> &bull; <%= link_to t(:sign_out_link), sign_out_path -%>
       <% else -%>
-        <%= link_to 'sign in', sign_in_path -%> &bull; <%= link_to "sign up", sign_up_path -%>
+        <%= link_to t(:sign_in_link), sign_in_path -%> &bull; <%= link_to t(:sign_up_link), sign_up_path -%>
       <% end -%>
     </div>
 
     <% if signed_in? -%>
       <ul id="nav">
-        <li><%= link_to_unless_current "Add Expense", new_expense_path -%></li>
-        <li><%= link_to_unless_current "Expenses (#{@expense_count})", expenses_path -%></li>
+        <li><%= link_to_unless_current t(:layout_add_expense), new_expense_path -%></li>
+        <li><%= link_to_unless_current "#{t(:layout_expenses)} (#{@expense_count})", expenses_path -%></li>
       </ul>
     <% end -%>
 

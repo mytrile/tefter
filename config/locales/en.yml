@@ -1,5 +1,63 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  formtastic:
+    labels:
+      expense:
+        amount: "I've spent"
+        title: For
+        category_name: Category
+      user_session:
+        email: Email
+        password: Password
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Passoword(confirmation)
+    actions:
+      create: Create
+      delete: Delete
+      register: Regsiter !
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              too_short: too short
+            password:
+              too_short: too short
+              confirmation: password must match
+            password_confirmation:
+              too_short: too short
+        expense:
+          attributes:
+            amount:
+              blank: can't be blank
+            title:
+              blank: can't be blank
+            category_name:
+              blank: can't be blank
+  support:
+    array:
+      two_words_connector: " and "
+      last_word_connector: " and "
+      words_connector: ", "
+
+  layout_add_expense: New expense
+  layout_expenses: Expenses
+
+  title_add_new_expense: New expense
+  title_expenses: Expenses
+  title_sign_in: Login
+  title_sign_up: Registration
+
+  confirm_delete: Are you sure you want to delete this record ?
+  delete_button: Delete
+  sign_in_button: Log in
+
+  sign_in_link: login
+  sign_out_link: log out
+  sign_up_link: registration
+
+  flash_expense_added: Expense added.
+  flash_expense_deleted: Expense deleted.
